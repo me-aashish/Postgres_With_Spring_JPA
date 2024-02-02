@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,6 +21,10 @@ public class City {
 	@Column(name = "city_name")
 	private String cityName;
 
+	@ManyToOne
+	@JoinColumn(name = "country_id")
+	private Country country;
+
 	public Long getId() {
 		return id;
 	}
@@ -31,8 +37,16 @@ public class City {
 		return cityName;
 	}
 
-	public void setCityname(String cityname) {
+	public void setCityname(String cityName) {
 		this.cityName = cityName;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
 	}
 
 }
