@@ -22,8 +22,19 @@ public class City {
 	private String cityName;
 
 	@ManyToOne
-	@JoinColumn(name = "country_id")
+	@JoinColumn(name = "country_id", updatable = false, insertable = false)
 	private Country country;
+
+	@Column(name = "country_id")
+	private int countryid;
+
+	public int getCountryid() {
+		return countryid;
+	}
+
+	public void setCountryid(int countryid) {
+		this.countryid = countryid;
+	}
 
 	public Long getId() {
 		return id;
