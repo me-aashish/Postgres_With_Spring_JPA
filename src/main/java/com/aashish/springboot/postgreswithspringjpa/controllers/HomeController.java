@@ -27,4 +27,10 @@ public class HomeController {
 	public City saveCity(@RequestBody City city) {
 		return cityService.saveCity(city);
 	}
+
+	@GetMapping("getcity")
+	public City getCity(String cityName) {
+		return cityService.getCity(cityName);
+	}
+
 }
